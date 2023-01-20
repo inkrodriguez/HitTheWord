@@ -15,6 +15,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.hittheword.R
 import kotlinx.coroutines.flow.callbackFlow
+import org.w3c.dom.Text
 
 class MainFragment : Fragment() {
     lateinit var viewModel: MainViewModel
@@ -30,11 +31,10 @@ class MainFragment : Fragment() {
         viewModel.ctx = context
 
         val editWord = view.findViewById<EditText>(R.id.editWord)
-        val tvResultado = view.findViewById<TextView>(R.id.tvResultado)
+        var tvResultado = view.findViewById<TextView>(R.id.tvResultado)
         val tvMoeda = view.findViewById<TextView>(R.id.tvMoeda)
         val tvVida = view.findViewById<TextView>(R.id.tvVida)
         val btnPlay = view.findViewById<ImageView>(R.id.btnPlay)
-
 
         tvResultado.text = viewModel.shuffleName().toString()
 
@@ -47,7 +47,8 @@ class MainFragment : Fragment() {
         })
 
         viewModel.palavra.resultadoFinal.observe(viewLifecycleOwner, Observer {
-            tvResultado.text = it.toString()
+            var palavra = it.toString()
+            tvResultado.text = palavra
         })
 
         btnPlay.setOnClickListener {
@@ -64,16 +65,17 @@ class MainFragment : Fragment() {
 
 
 
+
+
     fun gameOver(){
         if(viewModel.player.vida == 0){
             val pontuacaoFinal: Int = viewModel.player.moeda
             findNavController().navigate(MainFragmentDirections.actionMainFragmentToHighscoreFragment(pontuacaoFinal))
             viewModel.palavra.resetVariables()
-            viewModel.shuffleName()
+            viewModel.player.resetPlayer()
+
         }
 
     }
-
-
 
 }

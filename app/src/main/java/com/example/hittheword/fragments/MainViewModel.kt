@@ -1,11 +1,13 @@
 package com.example.hittheword.fragments
 
 import android.content.Context
+import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.navigation.fragment.findNavController
+import com.example.hittheword.R
 
 
 class MainViewModel: ViewModel() {
@@ -14,7 +16,6 @@ class MainViewModel: ViewModel() {
     var returnResult = MutableLiveData<String>()
     var palavra = Palavra()
     var player = Player()
-
 
     class Player {
 
@@ -33,6 +34,16 @@ class MainViewModel: ViewModel() {
                 life.value = vida
             }
 
+            fun resetPlayer(){
+                if(vida == 3){
+                    vida = 0
+                } else {
+                    vida += 3
+                }
+                life.value = vida
+                moeda = 0
+                pontuacao.value = moeda
+            }
     }
 
     class Palavra {
@@ -83,6 +94,8 @@ class MainViewModel: ViewModel() {
         }
 
         fun resetVariables(){
+            nameSplitRandom = ""
+            nameRandom = ""
             nameSplit.clear()
             emptyList.clear()
         }
@@ -95,11 +108,11 @@ class MainViewModel: ViewModel() {
     }
 
     fun shuffleName() {
-        palavra.randomName()
-        palavra.splitName()
-        palavra.splitNameRandom()
-        palavra.createWord()
-        palavra.joinString()
+            palavra.randomName()
+            palavra.splitName()
+            palavra.splitNameRandom()
+            palavra.createWord()
+            palavra.joinString()
     }
 
     fun checkWord(editWord: String){

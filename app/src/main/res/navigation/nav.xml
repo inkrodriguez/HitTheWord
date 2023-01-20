@@ -23,8 +23,7 @@
             app:argType="integer"
             android:defaultValue="0" />
         <action
-            android:id="@+id/action_highscoreFragment_self"
-            app:destination="@id/highscoreFragment"
-            app:popUpToInclusive="false" />
+            android:id="@+id/action_highscoreFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
     </fragment>
 </navigation>

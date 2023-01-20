@@ -15,22 +15,21 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/bg1" />
 
-        <TextView
-            android:id="@+id/tvResultado"
-            android:layout_width="267dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="72dp"
-            android:layout_marginTop="184dp"
-            android:fontFamily="@font/pixelsix10"
-            android:shadowColor="#1C1564"
-            android:text="JANELA"
-            android:textAlignment="center"
-            android:textAllCaps="true"
-            android:textColor="#FFC107"
-            android:textSize="40sp"
-            android:textStyle="normal"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/tvResultado"
+        android:layout_width="267dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="184dp"
+        android:fontFamily="@font/pixelsix10"
+        android:shadowColor="#1C1564"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="#FFC107"
+        android:textSize="40sp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/editWord"
